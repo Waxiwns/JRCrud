@@ -3,6 +3,7 @@ package com.example.controller;
 import com.example.entity.Book;
 import com.example.service.BooksService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,13 +19,13 @@ public class BooksController {
 
     private static final int PAGE_ITEMS_COUNT = 10;
 
-    private final BooksService service;
+    private BooksService service;
 
     @Autowired
-    public BooksController(BooksService service) {
+    @Qualifier(value = "bookService")
+    public void setService(BooksService service) {
         this.service = service;
     }
-
     @RequestMapping(value="/")
     public ModelAndView getBooks(@RequestParam(required = false) Integer page) {
         ModelAndView modelAndView = new ModelAndView("books");

@@ -5,13 +5,16 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Book")
+@Table(name = "Book", schema = "books")
 public class Book {
 
     @Id
     @GeneratedValue(generator="increment")
     @GenericGenerator(name="increment", strategy = "increment")
-    @Column(name = "ID")
+    @Column(name = "id")
+//    @Id
+//    @TableGenerator(name="TABLE_GEN",table="T_GENERATOR",pkColumnName="GEN_KEY",pkColumnValue="TEST",valueColumnName="GEN_VALUE",initialValue=1,allocationSize=1)
+//    @GeneratedValue(strategy=GenerationType.TABLE, generator="TABLE_GEN")
     private long id;
 
     @Column(name = "title")
@@ -23,7 +26,7 @@ public class Book {
     @Column(name = "author")
     private String author;
 
-    @Column(name = "isbn")
+    @Column(name = "ISBN")
     private int isbn;
 
     @Column(name = "printYear")

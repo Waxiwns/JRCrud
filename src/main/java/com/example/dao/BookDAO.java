@@ -9,11 +9,11 @@ public interface BookDAO {
 
     void editBook (Book book);
 
-    void deleteBook(int id);
+    void deleteBook(long id);
 
     List<Book> getAllBooks();
 
-    Book getBook(int id);
+    Book getBook(long id);
 
     List<Book> getBooksByTitle(String title);
 }
