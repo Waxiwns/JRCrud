@@ -110,8 +110,8 @@
                         <th>Description</th>
                         <th>Author</th>
                         <th>ISBN</th>
-                        <th>Print year</th>
-                        <th>Read already</th>
+                        <th>Print Year</th>
+                        <th>Read Already</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>

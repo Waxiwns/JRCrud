@@ -12,9 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-/**
- * Created by Yegor on 10/14/17.
- */
+
 @Controller
 public class BooksController {
 
