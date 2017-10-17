@@ -72,6 +72,29 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <form:label path="author" cssClass="control-label col-xs-3">Author</form:label>
+                    <div class="col-xs-6">
+                        <form:input cssClass="form-control" path="author" value="${book.author}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <form:label path="isbn" cssClass="control-label col-xs-3">ISBN</form:label>
+                    <div class="col-xs-6">
+                        <form:input cssClass="form-control" path="isbn" value="${book.isbn}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <form:label path="printYear" cssClass="control-label col-xs-3">PrintYear</form:label>
+                    <div class="col-xs-6">
+                        <form:input cssClass="form-control" path="printYear" value="${book.printYear}"/>
+                    </div>
+                </div>
+
+
+
                 <%--<div class="form-group">--%>
                     <%--<div class="control-label col-xs-3"><form:label path="isAdmin">isAdmin?</form:label></div>--%>
                     <%--<div class="col-xs-6">--%>
@@ -117,11 +140,7 @@
             return false;
         }
 
-//        if(isAdmin < 0 || isAdmin > 1) {
-//            alert('Please enter proper isAdmin');
-//            $('#isAdmin').focus();
-//            return false;
-//        }
+//
         return true;
     };
 </script>
