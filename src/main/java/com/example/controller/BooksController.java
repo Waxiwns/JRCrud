@@ -59,7 +59,7 @@ public class BooksController {
     @RequestMapping("edit")
     public ModelAndView editBook(@RequestParam long id, @ModelAttribute Book book) {
         book = service.getBook(id);
-        ModelAndView modelAndView = new ModelAndView("add_book");
+        ModelAndView modelAndView = new ModelAndView("edit_book");
         modelAndView.addObject("book", book);
         return modelAndView;
     }

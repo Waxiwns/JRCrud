@@ -10,7 +10,7 @@
 <meta name="author" content="Max Ivanov">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Add Book</title>
+    <title>Edit Book</title>
     <!-- Bootstrap CSS -->
      <%--<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"> --%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -48,12 +48,13 @@
             </h3>
         </div>
         <div class="panel-body">
-            <form:form id="AddBookForm" cssClass="form-horizontal" modelAttribute="book" method="post" action="save">
+            <form:form id="EditBookForm" cssClass="form-horizontal" modelAttribute="book" method="post" action="save">
 
                 <div class="form-group">
                     <div class="control-label col-xs-3"> <form:label path="title" >Title</form:label> </div>
                     <div class="col-xs-6">
                         <form:hidden path="id" value="${book.id}"/>
+                        <form:hidden path="author" value="${book.author}"/>
                         <form:input cssClass="form-control" path="title" value="${book.title}"/>
                     </div>
                 </div>
@@ -65,12 +66,12 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <form:label path="author" cssClass="control-label col-xs-3">Author</form:label>
-                    <div class="col-xs-6">
-                        <form:input cssClass="form-control" path="author" value="${book.author}"/>
-                    </div>
-                </div>
+                <%--<div class="form-group">--%>
+                    <%--<form:label path="author" cssClass="control-label col-xs-3">Author</form:label>--%>
+                    <%--<div class="col-xs-6">--%>
+                        <%--<form:input cssClass="form-control" path="author" value="${book.author}"/>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
 
                 <div class="form-group">
                     <form:label path="isbn" cssClass="control-label col-xs-3">ISBN</form:label>
@@ -83,6 +84,13 @@
                     <form:label path="printYear" cssClass="control-label col-xs-3">PrintYear</form:label>
                     <div class="col-xs-6">
                         <form:input cssClass="form-control" path="printYear" value="${book.printYear}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <form:label path="readAlready" cssClass="control-label col-xs-3">ReadAlready</form:label>
+                    <div class="col-xs-6">
+                        <form:input cssClass="form-control" path="readAlready" value="${book.readAlready}"/>
                     </div>
                 </div>
 
