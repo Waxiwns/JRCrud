@@ -65,12 +65,12 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <form:label path="author" cssClass="control-label col-xs-3">Author</form:label>
-                    <div class="col-xs-6">
-                        <form:input cssClass="form-control" path="author" value="${book.author}"/>
-                    </div>
-                </div>
+                <%--<div class="form-group">--%>
+                    <%--<form:label path="author" cssClass="control-label col-xs-3">Author</form:label>--%>
+                    <%--<div class="col-xs-6">--%>
+                        <%--<form:input cssClass="form-control" path="author" value="${book.author}"/>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
 
                 <div class="form-group">
                     <form:label path="isbn" cssClass="control-label col-xs-3">ISBN</form:label>
