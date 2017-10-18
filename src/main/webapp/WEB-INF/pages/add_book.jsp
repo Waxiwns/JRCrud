@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: andreichernov
-  Date: 21.05.2016
-  Time: 17:02
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -19,7 +12,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Add Book</title>
     <!-- Bootstrap CSS -->
-    <%-- <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"> --%>
+     <%--<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"> --%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <style type="text/css">
         .myrow-container{
@@ -93,15 +86,6 @@
                     </div>
                 </div>
 
-
-
-                <%--<div class="form-group">--%>
-                    <%--<div class="control-label col-xs-3"><form:label path="isAdmin">isAdmin?</form:label></div>--%>
-                    <%--<div class="col-xs-6">--%>
-                        <%--<form:input cssClass="form-control" path="isAdmin" value="${book.readAlready}"/>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-
                 <div class="form-group">
                     <div class="row">
                         <div class="col-xs-4">
@@ -127,8 +111,8 @@
 
         var title = $('#title').val().trim();
         var description = $('#description').val();
-        var isAdmin = $('#isAdmin').val();
-        if(title.length ==0) {
+        var author = $('#author').val();
+        if(title.length == 0) {
             alert('Please enter title');
             $('#name').focus();
             return false;
@@ -136,6 +120,12 @@
 
         if(description.length ==0) {
             alert('Please enter description');
+            $('#name').focus();
+            return false;
+        }
+
+        if(author.length ==0) {
+            alert('Please enter author');
             $('#name').focus();
             return false;
         }

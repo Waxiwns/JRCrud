@@ -19,13 +19,15 @@ public class BooksController {
 
     private static final int PAGE_ITEMS_COUNT = 10;
 
+    @Autowired(required = true)
+    @Qualifier(value = "bookService")
     private BooksService service;
 
-    @Autowired
-    @Qualifier(value = "bookService")
-    public void setService(BooksService service) {
-        this.service = service;
-    }
+//    @Autowired
+//    @Qualifier(value = "bookService")
+//    public void setService(BooksService service) {
+//        this.service = service;
+//    }
     @RequestMapping(value="/")
     public ModelAndView getBooks(@RequestParam(required = false) Integer page) {
         ModelAndView modelAndView = new ModelAndView("books");
@@ -55,9 +57,11 @@ public class BooksController {
     }
 
     @RequestMapping("edit")
-    public ModelAndView editBook(@RequestParam int id, @ModelAttribute Book book) {
+    public ModelAndView editBook(@RequestParam long id, @ModelAttribute Book book) {
         book = service.getBook(id);
-        return new ModelAndView("add_book", "book", book);
+        ModelAndView modelAndView = new ModelAndView("add_book");
+        modelAndView.addObject("book", book);
+        return modelAndView;
     }
 
     @RequestMapping("save")
@@ -71,15 +75,16 @@ public class BooksController {
     }
 
     @RequestMapping("delete")
-    public ModelAndView deleteBook(@RequestParam int id)
+    public ModelAndView deleteBook(@RequestParam long id)
     {
         service.deleteBook(id);
         return new ModelAndView("redirect:/");
     }
 
     @RequestMapping("search")
-    public ModelAndView searchBook(@RequestParam("searcTitle") String queryTitle){
+    public ModelAndView searchBook(@RequestParam("queryTitle") String queryTitle){
         List<Book> books = service.getBooksByTitle(queryTitle);
+
         return new ModelAndView("books", "books", books);
     }
 }

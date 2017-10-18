@@ -3,6 +3,7 @@ package com.example.dao;
 import com.example.entity.Book;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -29,12 +30,12 @@ public class BookDAOImpl implements BookDAO{
 
     public void deleteBook(long id) {
         Session session = this.sessionFactory.getCurrentSession();
-        Book book = session.load(Book.class, new Long(id));
+        Book book = session.load(Book.class, id);
         if (book != null){
             session.delete(book);
         }
     }
-
+    @SuppressWarnings("unchecked")
     public List<Book> getAllBooks() {
         Session session = this.sessionFactory.getCurrentSession();
         List<Book> books = session.createQuery("from Book").list();
@@ -43,16 +44,20 @@ public class BookDAOImpl implements BookDAO{
 
     public Book getBook(long id) {
         Session session = this.sessionFactory.getCurrentSession();
-        return session.load(Book.class, new Long(id));
+        Book book = session.get(Book.class, id);
+        return book;
     }
 
     public List<Book> getBooksByTitle(String title) {
         Session session = this.sessionFactory.getCurrentSession();
+        List<Book> allBooks = session.createQuery("from Book").list();
         List<Book> books = new ArrayList<Book>();
 
-
-        // ДОписать
-
+        for (int i = 0; i < allBooks.size(); i++) {
+            Book book = allBooks.get(i);
+            if (book.getTitle().toLowerCase().contains(title.toLowerCase()))
+            books.add(book);
+        }
 
         return books;
     }
