@@ -2,7 +2,7 @@
   CRUD (create, read, update, delete).
   
   
-  https://github.com/andreichernov/CrudAppTry/blob/master/readme_img/db_table_example.png
+  
   
   Стандартное CRUD приложение, которое отображает список всех книг в базе (с пейджингом по 10 книг на странице). С возможностью их удаления, редактирования, добавления новых, и поиска по уже существующим.
   
