@@ -1,6 +1,5 @@
 # JRCrud
-  CRUD (create, read, update, delete).
-  
+  CRUD (create, read, update, delete). 
   
   ![Image alt](https://github.com/Waxiwns/JRCrud/blob/master/Screen.jpg)
   
