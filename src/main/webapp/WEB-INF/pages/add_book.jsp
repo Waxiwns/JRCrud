@@ -82,7 +82,7 @@
                 <div class="form-group">
                     <form:label path="printYear" cssClass="control-label col-xs-3">PrintYear</form:label>
                     <div class="col-xs-6">
-                        <form:input cssClass="form-control" path="printYear" value="${book.printYear}"/>
+                        <form:input cssClass="form-control" type="number" path="printYear" value="${book.printYear}"/>
                     </div>
                 </div>
 
@@ -112,6 +112,8 @@
         var title = $('#title').val().trim();
         var description = $('#description').val();
         var author = $('#author').val();
+        var isbn = $('#isbn').val();
+        var printYear = $('#printYear').val();
         if(title.length == 0) {
             alert('Please enter title');
             $('#name').focus();
@@ -129,8 +131,17 @@
             $('#name').focus();
             return false;
         }
+        if(isbn.length == 0) {
+            alert('Please enter isbn');
+            $('#name').focus();
+            return false;
+        }
+        if(printYear.length == 0) {
+            alert('Please enter printYear');
+            $('#name').focus();
+            return false;
+        }
 
-//
         return true;
     };
 </script>

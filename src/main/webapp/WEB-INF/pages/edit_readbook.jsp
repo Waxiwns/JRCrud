@@ -10,7 +10,7 @@
 <meta name="author" content="Max Ivanov">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Edit Book</title>
+    <title>Edit ReadBook</title>
     <!-- Bootstrap CSS -->
      <%--<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"> --%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -48,36 +48,18 @@
             </h3>
         </div>
         <div class="panel-body">
-            <form:form id="EditBookForm" cssClass="form-horizontal" modelAttribute="book" method="post" action="save">
+            <form:form id="EditReadBookForm" cssClass="form-horizontal" modelAttribute="book" method="post" action="save">
 
                 <div class="form-group">
-                    <div class="control-label col-xs-3"> <form:label path="title" >Title</form:label> </div>
+                    <div class="control-label col-xs-3"> <form:label path="readAlready" >ReadAlready</form:label> </div>
                     <div class="col-xs-6">
                         <form:hidden path="id" value="${book.id}"/>
                         <form:hidden path="author" value="${book.author}"/>
-                        <form:hidden path="readAlready" value="${book.readAlready=false}"/>
-                        <form:input cssClass="form-control" path="title" value="${book.title}"/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <form:label path="description" cssClass="control-label col-xs-3">Description</form:label>
-                    <div class="col-xs-6">
-                        <form:input cssClass="form-control" path="description" value="${book.description}"/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <form:label path="isbn" cssClass="control-label col-xs-3">ISBN</form:label>
-                    <div class="col-xs-6">
-                        <form:input cssClass="form-control" path="isbn" value="${book.isbn}"/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <form:label path="printYear" cssClass="control-label col-xs-3">PrintYear</form:label>
-                    <div class="col-xs-6">
-                        <form:input cssClass="form-control" type="number" path="printYear" value="${book.printYear}"/>
+                        <form:hidden path="title" value="${book.title}"/>
+                        <form:hidden path="description" value="${book.description}"/>
+                        <form:hidden path="isbn" value="${book.isbn}"/>
+                        <form:hidden path="printYear" value="${book.printYear}"/>
+                        <form:input cssClass="form-control" path="readAlready" value="${book.readAlready}"/>
                     </div>
                 </div>
 
@@ -101,41 +83,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<script type="text/javascript">
-    function submitNewBook() {
-
-        var title = $('#title').val().trim();
-        var description = $('#description').val();
-        var isbn = $('#isbn').val();
-        var printYear = $('#printYear').val();
-
-        if(title.length == 0) {
-            alert('Please enter title');
-            $('#name').focus();
-            return false;
-        }
-
-        if(description.length ==0) {
-            alert('Please enter description');
-            $('#name').focus();
-            return false;
-        }
-        if(isbn.length == 0) {
-            alert('Please enter isbn');
-            $('#name').focus();
-            return false;
-        }
-        if(printYear.length == 0) {
-            alert('Please enter printYear');
-            $('#name').focus();
-            return false;
-        }
-
-
-
-//
-        return true;
-    };
-</script>
 </body>
 </html>

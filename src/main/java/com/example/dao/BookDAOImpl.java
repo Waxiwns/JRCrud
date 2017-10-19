@@ -17,7 +17,6 @@ public class BookDAOImpl implements BookDAO{
         this.sessionFactory = sessionFactory;
     }
 
-
     public void addBook(Book book) {
         Session session = this.sessionFactory.getCurrentSession();
         session.persist(book);

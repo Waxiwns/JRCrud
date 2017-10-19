@@ -12,9 +12,9 @@ CREATE TABLE `test`.`book`
   `printYear` INT NOT NULL DEFAULT '0',
   `readAlready` BIT(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`id`)
-
 )
-  COLLATE='utf8_general_ci';
+  ENGINE = InnoDB 
+  DEFAULT CHARACTER SET = utf8;
 
 INSERT INTO `book` (`title`,`description`,`author`,`ISBN`,`printYear`)
 VALUES 	("Book 1","Some description","author 1","978-5-17-982771-9",2017),

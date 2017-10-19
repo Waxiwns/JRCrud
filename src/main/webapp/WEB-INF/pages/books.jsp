@@ -126,7 +126,7 @@
                             <th><c:out value="${book.isbn}"/></th>
                             <th><c:out value="${book.printYear}"/></th>
                             <th><c:out value="${book.readAlready}"/></th>
-                            <th><a class="aEdit" href="edit?id=<c:out value='${book.id}'/>">Edit</a></th>
+                            <th><a class="aEdit" href="editQuestion?id=<c:out value='${book.id}'/>">Edit</a></th>
                             <th><a class="aDelete" href="delete?id=<c:out value='${book.id}'/>">Delete</a></th>
                         </tr>
                     </c:forEach>

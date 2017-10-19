@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,11 +24,6 @@ public class BooksController {
     @Qualifier(value = "bookService")
     private BooksService service;
 
-//    @Autowired
-//    @Qualifier(value = "bookService")
-//    public void setService(BooksService service) {
-//        this.service = service;
-//    }
     @RequestMapping(value="/")
     public ModelAndView getBooks(@RequestParam(required = false) Integer page) {
         ModelAndView modelAndView = new ModelAndView("books");
@@ -56,11 +52,38 @@ public class BooksController {
         return new ModelAndView("add_book");
     }
 
+    @RequestMapping("editQuestion")
+    public ModelAndView editQuestionBook(@RequestParam long id, @ModelAttribute Book book) {
+        book = service.getBook(id);
+        ModelAndView modelAndView;
+        if (!book.isReadAlready()){
+            modelAndView = new ModelAndView("edit_question");
+            modelAndView.addObject("book", book);
+        }
+        else {
+            modelAndView = new ModelAndView("edit_book");
+            modelAndView.addObject("book", book);
+        }
+        return modelAndView;
+    }
+
     @RequestMapping("edit")
     public ModelAndView editBook(@RequestParam long id, @ModelAttribute Book book) {
         book = service.getBook(id);
-        ModelAndView modelAndView = new ModelAndView("edit_book");
+        ModelAndView modelAndView;
+        modelAndView = new ModelAndView("edit_book");
         modelAndView.addObject("book", book);
+        return modelAndView;
+    }
+
+    @RequestMapping("editRead")
+    public ModelAndView editReadBook(@RequestParam long id, @ModelAttribute Book book) {
+        book = service.getBook(id);
+        ModelAndView modelAndView;
+
+            modelAndView = new ModelAndView("edit_readbook");
+            modelAndView.addObject("book", book);
+
         return modelAndView;
     }
 
@@ -83,7 +106,10 @@ public class BooksController {
 
     @RequestMapping("search")
     public ModelAndView searchBook(@RequestParam("queryTitle") String queryTitle){
-        List<Book> books = service.getBooksByTitle(queryTitle);
+        List<Book> books = new ArrayList<Book>();
+        if (queryTitle != "") {
+            books = service.getBooksByTitle(queryTitle);
+        }
 
         return new ModelAndView("books", "books", books);
     }
